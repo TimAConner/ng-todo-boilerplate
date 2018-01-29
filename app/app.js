@@ -1,6 +1,7 @@
 "use strict";
 
 angular.module("ToDoApp", ["ngRoute"])
+.constant('FBUrl', 'https://practice-project-d42d4.firebaseio.com/ngTodo/')
 .config(($routeProvider) => {
     /*
      Route provider will break after it finds a when that matches.  

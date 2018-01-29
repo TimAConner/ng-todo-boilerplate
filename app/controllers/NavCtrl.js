@@ -1,16 +1,22 @@
 'use strict';
 
-angular.module('ToDoApp').controller('NavCtrl', function($scope){
+angular.module('ToDoApp').controller('NavCtrl', function($scope, $rootScope, FilterFactory, $location){
+    
+    $scope.searchTerm = FilterFactory;
+
+    $scope.isActive = viewLocation => viewLocation === $location.path();
+    
+
     $scope.navItems = [
         // TODO: Hide/Show login/logout
-        {
-            name: 'Logout',
-            url: '#!/logout'
-        },
-        {
-            name: 'Login',
-            url: '#!/logins'
-        },
+        // {
+        //     name: 'Logout',
+        //     url: '#!/logout'
+        // },
+        // {
+        //     name: 'Login',
+        //     url: '#!/logins'
+        // },
         {
             name: 'All Items',
             url: '#!/items/list'
@@ -20,4 +26,5 @@ angular.module('ToDoApp').controller('NavCtrl', function($scope){
             url: '#!/items/new'
         }
     ];
+
 });
