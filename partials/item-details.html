@@ -1,4 +1,4 @@
-<h1>Item Details</h1>
+<h1>Item Details: {{selectedItem.task}}</h1>
 
 <h2>Assigned To: {{selectedItem.assignedTo}}</h2>
 <h2>Due Date: {{selectedItem.dueDate}}</h2>
@@ -7,4 +7,4 @@
 <h2>Urgency: {{selectedItem.urgency}}</h2>
 <h2>Completed ?: {{(selectedItem.isCompleted ? "yes" : "no")}}</h2>
 
-<button><a href='/items/deets/{{selectedItem.id}}'>Edit</a></button>
+<button><a href='#!/items/deets/{{selectedItem.id}}/edit'>Edit</a></button>
