@@ -2,7 +2,9 @@
 
 angular.module('ToDoApp').controller('ItemNewCtrl', function($scope, ItemFactory, $location){
 
-    $scope.newTask = {
+    $scope.title = "New";
+
+    $scope.toDoItem = {
         task: '',
         isCompleted: false,
         dueDate: '',
@@ -12,8 +14,10 @@ angular.module('ToDoApp').controller('ItemNewCtrl', function($scope, ItemFactory
         dependencies: ''
     };
 
-    $scope.addNewItem = () => {
-        ItemFactory.addNewItem($scope.newTask)
+    $scope.saveItem = () => {
+        // Assign uid to item
+        $scope.toDoItem.uid = firebase.auth().currentUser.uid;
+        ItemFactory.addNewItem($scope.toDoItem)
         .then(() => {
             $location.url("/items/list");
         })

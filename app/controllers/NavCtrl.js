@@ -8,14 +8,14 @@ angular.module('ToDoApp').controller('NavCtrl', function($scope, $rootScope, Fil
     
 
     $scope.navItems = [
-        // {
-        //     name: 'Logout',
-        //     url: '#!/logout'
-        // },
-        // {
-        //     name: 'Login',
-        //     url: '#!/logins'
-        // },
+        {
+            name: 'Logout',
+            url: '#!/logout'
+        },
+        {
+            name: 'Login',
+            url: '#!/login'
+        },
         {
             name: 'All Items',
             url: '#!/items/list'

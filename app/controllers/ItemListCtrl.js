@@ -7,7 +7,11 @@ angular.module('ToDoApp').controller('ItemListCtrl', function($scope, ItemFactor
     $scope.items = [];
 
     ItemFactory.fetchToDoItems().then(data => {
-        $scope.items = data;
+        if(data.length > 0){
+            $scope.items = data;
+        } else {
+            $scope.message = "Looks like you need to add some todo items!";
+        }
     });
     // Attempt at destructuring the object
     // $scope.itemInfo = $scope.items.map(item => {
