@@ -39,18 +39,14 @@ angular.module('ToDoApp').factory('ItemFactory', (FBUrl, $http, $q) => {
         return $q((resolve, reject) => {
             $http
             .get(`${FBUrl}/items.json`)
-            .then(data => resolve(data.data))
+            .then(({data}) => resolve(data))
             .catch(err => err);
         });
     };  
 
-    let fetchToDoItems = () => {
-        return $q((resolve, reject) => {
-            getToDoItems().then(data => resolve(formatFirebaseData(data)));
-        });
-    };
 
     let formatFirebaseData = (data) => {
+        console.log('data', data);
         // Add firebase key to object array
         let formattedData = Object.keys(data).map(key => {
             data[key].id = key;
@@ -58,7 +54,12 @@ angular.module('ToDoApp').factory('ItemFactory', (FBUrl, $http, $q) => {
         });
         return formattedData;
     };
-    
+
+    let fetchToDoItems = () => {
+        return $q((resolve, reject) => {
+            getToDoItems().then(data => resolve(formatFirebaseData(data)));
+        });
+    };
 
     let addNewItem = (toDoItem) => {
         return $q((resolve, reject) => {

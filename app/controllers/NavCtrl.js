@@ -8,7 +8,6 @@ angular.module('ToDoApp').controller('NavCtrl', function($scope, $rootScope, Fil
     
 
     $scope.navItems = [
-        // TODO: Hide/Show login/logout
         // {
         //     name: 'Logout',
         //     url: '#!/logout'

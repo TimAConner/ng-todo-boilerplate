@@ -16,11 +16,12 @@ angular.module('ToDoApp').controller('ItemListCtrl', function($scope, ItemFactor
     // });
 
     $scope.deleteItem = (id) => {
-        ItemFactory.deleteItem(id).then((data) => {
+        ItemFactory.deleteItem(id)
+        .then((data) => {
             $route.reload();
         })
         .catch(err => {
-            console.log('err', err);
+            console.log('err', err);            
         });
     };
 
